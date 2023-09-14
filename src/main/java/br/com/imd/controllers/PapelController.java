@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class PapelController {
     @RequestMapping("/papeis")
-    public List<Papel> getPapeis() {
+    public Set<Papel> getPapeis() {
         return PapelRepository.getPapeis();
     }
 

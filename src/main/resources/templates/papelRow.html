@@ -1,0 +1,12 @@
+<tr th:fragment="papelRow(papel)" xmlns:th="http://www.w3.org/1999/xhtml">
+    <td th:text="${papel.id}"></td>
+    <td th:text="${papel.descricao}"></td>
+    <td>
+        <button class="icon-btn" title="Editar" th:attr="hx-get=|/papel/${papel.id}/editar|">
+            <i class="bi bi-pencil-square"></i>
+        </button>
+        <button class="icon-btn" title="Remover" th:attr="hx-delete=|/papel/${papel.id}|">
+            <i class="bi bi-trash"></i>
+        </button>
+    </td>
+</tr>

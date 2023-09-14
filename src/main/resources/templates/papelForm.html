@@ -1,0 +1,16 @@
+<form id="papel-form">
+    <h2>Cadastro de Papel</h2>
+
+    <p>
+        <label for="descricao">Descrição:</label>
+        <input id="descricao" name="descricao" type="text"/>
+    </p>
+    <p>
+        <button class="uk-button uk-button-default" hx-post="/papel" hx-swap="beforeend" hx-target="#papeis" _="on click remove #papel-form then hide .modal">
+            Cadastrar
+        </button>
+        <button _="on click remove #papel-form then hide .modal" class="uk-button uk-button-default" type="button">
+            Cancelar
+        </button>
+    </p>
+</form>

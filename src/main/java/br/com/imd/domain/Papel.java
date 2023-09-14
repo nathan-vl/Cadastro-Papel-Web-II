@@ -10,6 +10,11 @@ public class Papel extends Entity {
     @Setter
     private String descricao;
 
+    public Papel(Integer id, String descricao) {
+        super(id);
+        this.descricao = descricao;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(descricao, getId());
@@ -21,6 +26,15 @@ public class Papel extends Entity {
         if (obj == null) return false;
         if (getClass() != obj.getClass()) return false;
         Papel other = (Papel) obj;
-        return Objects.equals(descricao, other.descricao) && getId() == other.getId();
+        return getId() == other.getId();
+    }
+
+    @Override
+    public String toString() {
+        return "Papel{" +
+                "descricao='" + descricao + '\'' +
+                ", id=" + getId() +
+                ", dataCadastro=" + getDataCadastro() +
+                '}';
     }
 }

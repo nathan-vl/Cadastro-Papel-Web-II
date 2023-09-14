@@ -1,0 +1,14 @@
+<tr xmlns:th="http://www.w3.org/1999/xhtml">
+    <td th:text="${papel.id}"></td>
+    <td>
+        <input id="descricao" name="descricao" placeholder="Descrição do papel" th:attr="value=|${papel.descricao}|" type="text">
+    </td>
+    <td>
+        <button class="icon-btn" title="Salvar" hx-include="closest tr" th:attr="hx-put=|/papel/${papel.id}|">
+            <i class="bi bi-floppy"></i>
+        </button>
+        <button class="icon-btn" title="Cancelar" th:attr="hx-get=|/papel/${papel.id}|">
+            <i class="bi bi-x"></i>
+        </button>
+    </td>
+</tr>

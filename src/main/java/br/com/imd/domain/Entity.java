@@ -8,9 +8,14 @@ import java.util.Date;
 public abstract class Entity {
     @Getter
     @Setter
-    private int id;
+    private Integer id;
 
     @Getter
     @Setter
     private Date dataCadastro;
+
+    public Entity(Integer id) {
+        this.id = id;
+        this.dataCadastro = new Date();
+    }
 }

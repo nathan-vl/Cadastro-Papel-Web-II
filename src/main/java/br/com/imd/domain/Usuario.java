@@ -15,6 +15,12 @@ public class Usuario extends Entity {
     @Setter
     private List<Papel> papeis;
 
+    public Usuario(Integer id, String nome, List<Papel> papeis) {
+        super(id);
+        this.nome = nome;
+        this.papeis = papeis;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(getId(), nome, papeis);
