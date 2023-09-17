@@ -1,18 +1,31 @@
 package br.com.imd.domain;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Objects;
 
-public class Papel extends Entity {
+@Entity
+public class Papel extends br.com.imd.arq.Entity {
     @Getter
     @Setter
+    @Column
     private String descricao;
 
     public Papel(Integer id, String descricao) {
         super(id);
         this.descricao = descricao;
+    }
+
+    public Papel(String descricao) {
+        super();
+        this.descricao = descricao;
+    }
+
+    public Papel() {
+        super();
     }
 
     @Override
@@ -31,10 +44,6 @@ public class Papel extends Entity {
 
     @Override
     public String toString() {
-        return "Papel{" +
-                "descricao='" + descricao + '\'' +
-                ", id=" + getId() +
-                ", dataCadastro=" + getDataCadastro() +
-                '}';
+        return "Papel{" + "descricao='" + descricao + '\'' + ", id=" + getId() + ", dataCadastro=" + getDataCadastro() + '}';
     }
 }
