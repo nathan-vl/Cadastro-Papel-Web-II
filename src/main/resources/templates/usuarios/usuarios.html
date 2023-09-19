@@ -16,31 +16,33 @@
     <script src="https://unpkg.com/htmx.org@1.9.5"></script>
     <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
 
-    <title>Papéis</title>
+    <title>Usuários</title>
 </head>
 
 <body>
 
 <div class="uk-container">
-    <h1 class="uk-heading-divider">Papéis</h1>
+    <h1 class="uk-heading-divider">Usuários</h1>
 
-    <table class="uk-table uk-table-striped uk-table-small" id="papeis">
+    <table class="uk-table uk-table-striped uk-table-small" id="usuarios">
         <thead>
         <tr>
             <th>#</th>
-            <th>Descrição</th>
+            <th>Nome</th>
+            <th>Papéis</th>
             <th>Opções</th>
         </tr>
         </thead>
 
         <tbody hx-swap="outerHTML" hx-target="closest tr">
-        <tr th:each="papel : ${papeis}" th:insert="~{papelRow :: papelRow(${papel})}" th:remove="tag"></tr>
+        <tr th:each="usuario : ${usuarios}" th:insert="~{usuarios/usuarioRow :: usuarioRow(${usuario})}" th:remove="tag"></tr>
         </tbody>
 
         <tfoot>
         <tr>
             <th>#</th>
-            <th>Descrição</th>
+            <th>Nome</th>
+            <th>Papéis</th>
             <th>Opções</th>
         </tr>
         <tr>
@@ -48,7 +50,7 @@
                 <button
                         _="on click show .modal"
                         class="uk-button uk-button-default"
-                        hx-get="/papel/form"
+                        hx-get="/usuario/form"
                         hx-swap="innerHTML"
                         hx-target=".modal">
                     Novo papel

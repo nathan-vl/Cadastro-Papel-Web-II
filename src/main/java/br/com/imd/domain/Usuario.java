@@ -6,8 +6,8 @@ import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Usuario extends br.com.imd.arq.Entity {
@@ -19,15 +19,15 @@ public class Usuario extends br.com.imd.arq.Entity {
     @Getter
     @Setter
     @ManyToMany
-    private List<Papel> papeis;
+    private Set<Papel> papeis;
 
-    public Usuario(Integer id, String nome, List<Papel> papeis) {
+    public Usuario(Integer id, String nome, Set<Papel> papeis) {
         super(id);
         this.nome = nome;
         this.papeis = papeis;
     }
 
-    public Usuario(String nome, List<Papel> papeis) {
+    public Usuario(String nome, Set<Papel> papeis) {
         super();
         this.nome = nome;
         this.papeis = papeis;
@@ -35,6 +35,10 @@ public class Usuario extends br.com.imd.arq.Entity {
 
     public Usuario() {
         super();
+    }
+
+    public String papeisFormatado() {
+        return String.join(", ", papeis.stream().map(Papel::getDescricao).toList());
     }
 
     @Override

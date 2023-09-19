@@ -1,0 +1,13 @@
+<tr th:fragment="usuarioRow(usuario)" xmlns:th="http://www.w3.org/1999/xhtml">
+    <td th:text="${usuario.id}"></td>
+    <td th:text="${usuario.nome}"></td>
+    <td th:text="${usuario.papeisFormatado}"></td>
+    <td>
+        <button class="icon-btn" title="Editar" th:attr="hx-get=|/usuario/${usuario.id}/editar|">
+            <i class="bi bi-pencil-square"></i>
+        </button>
+        <button class="icon-btn" title="Remover" th:attr="hx-delete=|/usuario/${usuario.id}|">
+            <i class="bi bi-trash"></i>
+        </button>
+    </td>
+</tr>

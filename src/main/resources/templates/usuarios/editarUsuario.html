@@ -1,0 +1,19 @@
+<tr xmlns:th="http://www.w3.org/1999/xhtml">
+    <td th:text="${usuario.id}"></td>
+    <td>
+        <input id="nome" name="nome" placeholder="Nome do usuário" th:attr="value=|${usuario.nome}|" type="text">
+    </td>
+    <td>
+        <ul>
+            <li th:each="papel : ${usuario.papeis}" th:text="${papel.descricao}"></li>
+        </ul>
+    </td>
+    <td>
+        <button class="icon-btn" hx-include="closest tr" th:attr="hx-put=|/usuario/${usuario.id}|" title="Salvar">
+            <i class="bi bi-floppy"></i>
+        </button>
+        <button class="icon-btn" th:attr="hx-get=|/usuario/${usuario.id}|" title="Cancelar">
+            <i class="bi bi-x"></i>
+        </button>
+    </td>
+</tr>

@@ -2,10 +2,12 @@ package br.com.imd.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Papel extends br.com.imd.arq.Entity {
@@ -14,9 +16,18 @@ public class Papel extends br.com.imd.arq.Entity {
     @Column
     private String descricao;
 
+    @Getter
+    @Setter
+    @ManyToMany
+    private Set<Usuario> usuarios;
+
     public Papel(Integer id, String descricao) {
         super(id);
         this.descricao = descricao;
+    }
+
+    public Papel(Integer id) {
+        super(id);
     }
 
     public Papel(String descricao) {
