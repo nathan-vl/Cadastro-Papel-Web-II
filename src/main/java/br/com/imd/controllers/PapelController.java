@@ -6,11 +6,10 @@ import br.com.imd.domain.Usuario;
 import br.com.imd.repositories.PapelRepository;
 import br.com.imd.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -64,14 +63,12 @@ public class PapelController {
     }
 
     @DeleteMapping("/papel/{id}")
-    public String remover(@PathVariable int id) {
+    public ResponseEntity remover(@PathVariable int id) {
         List<Usuario> usuarios = usuarioRepository.findByIdPapel(id);
-        System.out.println(usuarios.size());
         if (usuarios.isEmpty()) {
             papelRepository.deleteById(id);
-            throw new ResponseStatusException(HttpStatus.OK);
+            return ResponseEntity.ok().build();
         }
-
-        return "";
+        return ResponseEntity.badRequest().build();
     }
 }
